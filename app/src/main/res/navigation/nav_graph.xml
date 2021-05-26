@@ -7,22 +7,31 @@
 
     <fragment
         android:id="@+id/FirstFragment"
-        android:name="com.example.bhagavadgita.FirstFragment"
-        android:label="@string/first_fragment_label"
+        android:name="com.example.bhagavadgita.ui.chapter_list.ChapterListFragment"
+        android:label="@string/app_name"
         tools:layout="@layout/fragment_first">
 
         <action
+            app:launchSingleTop="true"
             android:id="@+id/action_FirstFragment_to_SecondFragment"
-            app:destination="@id/SecondFragment" />
+            android:name="chapter"
+            app:argType="com.example.bhagavadgita.domain.Chpater"
+            app:destination="@id/SecondFragment">
+
+        </action>
+
     </fragment>
     <fragment
+
         android:id="@+id/SecondFragment"
-        android:name="com.example.bhagavadgita.SecondFragment"
-        android:label="@string/second_fragment_label"
+        android:name="com.example.bhagavadgita.ui.chapter_info.ChapterInfoFragment"
+
         tools:layout="@layout/fragment_second">
 
-        <action
-            android:id="@+id/action_SecondFragment_to_FirstFragment"
-            app:destination="@id/FirstFragment" />
+        <argument
+
+            android:name="chapter"
+            app:argType="com.example.bhagavadgita.domain.Chapter"
+            app:nullable="true" />
     </fragment>
 </navigation>
